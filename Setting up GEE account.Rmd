@@ -1,0 +1,53 @@
+---
+title: "rgee"
+author: "SWNJAM003"
+date: "06/12/2021"
+output: html_document
+---
+
+```{r}
+install.packages("rgee")
+library(remotes)
+install_github("r-spatial/rgee")
+rgee::ee_install()
+rgee::ee_check() 
+```
+
+
+```{r}
+rgee_environment_dir = "C:\\Users\\SwiggyG\\AppData\\Local\\R-MINI~1\\envs\\rgee_py\\"
+reticulate::use_python(rgee_environment_dir, required = T)
+rgee::ee_install_set_pyenv(
+    py_path = rgee_environment_dir, # Change it for your own Python PATH
+    py_env = "rgee_py" # Change it for your own Python ENV
+)
+Sys.setenv(RETICULATE_PYTHON = rgee_environment_dir)
+Sys.setenv(EARTHENGINE_PYTHON = rgee_environment_dir)
+rgee::ee_check()
+```
+
+## rgee: Setup and Details
+```{r}
+install.packages('googledrive')
+install.packages('googleCloudStorageR')
+```
+
+```{r}
+library(rgee)
+library(googleAuthR)
+library(googledrive)
+library(googleCloudStorageR)
+# Initialize Earth Engine and GD
+ee_Initialize(user = 'swinglerjames@gmail.com', drive = TRUE)
+
+```
+
+
+
+
+
+
+
+
+
+
